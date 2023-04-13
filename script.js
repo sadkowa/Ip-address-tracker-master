@@ -1,6 +1,7 @@
 //  pobranie danych z HTML  
 
 const form = document.querySelector(".form");
+const input = document.querySelector(".form__input");
 const ipInfo = document.querySelector('.info__data-ip')
 const locationInfo = document.querySelector('.info__data-location')
 const timezoneInfo = document.querySelector('.info__data-timezone')
@@ -24,8 +25,11 @@ const getUserData = (event) => {
 
     event.preventDefault();
 
-    const ipNumber = event.target[0].value
-    logJSONData(ipNumber)
+    const ipNumber = event.target[0].value;
+    logJSONData(ipNumber);
+
+    // reset input
+    input.value = ""
 }
 
 
@@ -67,17 +71,17 @@ const mapRender = (lat, lng) => {
     map.setView([`${lat}`, `${lng}`], 13);
 
     var myIcon = L.icon({
-            iconUrl: './images/icon-location.svg',
-            iconSize: [30, 40],
-            });
+        iconUrl: './images/icon-location.svg',
+        iconSize: [30, 40],
+    });
 
-        L.marker([`${lat}`, `${lng}`], {icon: myIcon}).addTo(map)
+    L.marker([`${lat}`, `${lng}`], { icon: myIcon }).addTo(map)
 }
 
 
 // obsługa formularza
 
-form.addEventListener('submit', getUserData)  
+form.addEventListener('submit', getUserData)
 
 
 
