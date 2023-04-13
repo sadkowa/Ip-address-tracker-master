@@ -14,16 +14,48 @@
     sizes="32x32"
     href="./images/favicon-32x32.png"
   >
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-  crossorigin=""/>
-  <title>Frontend Mentor | IP Address Tracker</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
-  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | IP Address Tracker</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 11px;
       text-align: center;
     }
@@ -36,43 +68,48 @@
 
 <body>
   <main>
-    <section class="description">
-      <h1 class="description__header">IP Address Tracker</h1>
-      <form
-        class="description__form form"
-        action=""
-      >
-        <input
-          class="form__input"
-          type="text"
-          placeholder="Search for any IP address or domain"
+    <div class="container">
+      <section class="description">
+        <h1 class="description__header">IP Address Tracker</h1>
+        <form
+          class="description__form form"
+          action=""
         >
-        <button
-          type="submit"
-          class="form__button"
-        ><img src="./images/icon-arrow.svg" alt=""></button>
-      </form>
-      <section class="description__info info">
-        <div class="info__ip">
-          <h4 class="info__heading">IP Address</h4>
-          <p class="info__data">192.2212.222.222</p>
-        </div>
-        <div class="info__location">
-          <h4 class="info__heading">Location</h4>
-          <p class="info__data">Brooklyn, NY, 103232</p>
-        </div>
-        <div class="info__timezone">
-          <h4 class="info__heading">Timezone</h4>
-          <p class="info__data">UTC -<span>05:00</span> </p>
-        </div>
-        <div class="info__isp">
-          <h4 class="info__heading">ISP</h4>
-          <p class="info__data">SpaceX StarlinkX</p>
-        </div>
+          <input
+            class="form__input"
+            type="text"
+            placeholder="Search for any IP address or domain"
+          >
+          <button
+            type="submit"
+            class="form__button"
+          ><img
+              src="./images/icon-arrow.svg"
+              alt=""
+            ></button>
+        </form>
+        <section class="description__info info">
+          <div class="info__panel">
+            <h4 class="info__heading">IP Address</h4>
+            <p class="info__data">192.2212.222.222</p>
+          </div>
+          <div class="info__panel">
+            <h4 class="info__heading">Location</h4>
+            <p class="info__data">Brooklyn, NY, 103232</p>
+          </div>
+          <div class="info__panel">
+            <h4 class="info__heading">Timezone</h4>
+            <p class="info__data">UTC -<span>05:00</span> </p>
+          </div>
+          <div class="info__panel">
+            <h4 class="info__heading">ISP</h4>
+            <p class="info__data">SpaceX StarlinkX</p>
+          </div>
+        </section>
       </section>
-    </section>
 
-    <div id="map" style="height: 180px; background-color: rgb(236, 211, 211) ;"></div>
+      <div id="map"></div>
+    </div>
   </main>
 
 
@@ -82,7 +119,7 @@
 
 
   <!-- add offset value dynamically using the API -->
-  
+
 
   <div class="attribution">
     Challenge by <a
@@ -92,10 +129,12 @@
     Coded by <a href="#">Dżo</a>.
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-     crossorigin=""></script>
-     <script src="script.js"></script>
+  <script
+    src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""
+  ></script>
+  <script src="script.js"></script>
 </body>
 
 
