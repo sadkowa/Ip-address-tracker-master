@@ -1,4 +1,4 @@
-/* mobile first */
+/* mobile */
 
 :root {
     --veryDarkGrey: hsl(0, 0%, 17%);
@@ -54,6 +54,10 @@ html, body {
     font-size: var(--fontFamily);
 }
 
+.form__input:hover {
+    cursor: pointer;
+}
+
 .form__input::placeholder {
     font-size: 0.7rem;
 }
@@ -66,6 +70,12 @@ html, body {
     flex-basis: 20%;
     background-color: black;
     border: none;
+    outline: none;
+}
+
+.form__button:hover {
+    cursor: pointer;
+    background-color: var(--veryDarkGrey);
 }
 
 .description__info {
@@ -102,8 +112,7 @@ html, body {
 }
 
 
-
-/* Desktop */
+/* desktop */
 
 @media (min-width:376px) {
     .container {
@@ -155,6 +164,10 @@ html, body {
     .info__data {
         height: 2rem;
         border-right: 1px rgba(128, 128, 128, 0.459) solid
+    }
+
+    .info__data-isp {
+        border-right: 0
     }
 
     #map {

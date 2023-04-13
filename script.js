@@ -72,7 +72,6 @@ const mapRender = (lat, lng) => {
             });
 
         L.marker([`${lat}`, `${lng}`], {icon: myIcon}).addTo(map)
-       
 }
 
 
