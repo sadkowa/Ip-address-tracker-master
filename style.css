@@ -48,7 +48,10 @@ html, body {
 }
 
 .form__input {
-    flex-basis: 80%;
+    width: 0;
+    flex-basis: 70%;
+    flex-shrink: 1;
+    flex-grow: 1;
     border: none;
     padding-left: 1rem;
     font-size: var(--fontFamily);
@@ -67,7 +70,7 @@ html, body {
 }
 
 .form__button {
-    flex-basis: 20%;
+    flex-basis: 3rem;
     background-color: black;
     border: none;
     outline: none;
@@ -111,10 +114,22 @@ html, body {
     z-index: -1;
 }
 
+.attribution {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
 
 /* desktop */
 
-@media (min-width:400px) {
+@media (min-width:800px) {
     .container {
         display: flex;
         flex-direction: column;
@@ -145,7 +160,7 @@ html, body {
     }
 
     .form__button {
-        flex-basis: 10%;
+        flex-basis: 3rem;
     }
 
     .description__info {

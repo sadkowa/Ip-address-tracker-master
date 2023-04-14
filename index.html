@@ -6,8 +6,7 @@
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  > <!-- displays site properly based on user's device -->
-
+  >
   <link
     rel="icon"
     type="image/png"
@@ -46,29 +45,15 @@
     rel="stylesheet"
     href="style.css"
   >
-
   <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
 </head>
 
 <body>
   <main>
+
     <div class="container">
+
       <section class="description">
         <h1 class="description__header">IP Address Tracker</h1>
         <form
@@ -78,7 +63,7 @@
           <input
             class="form__input"
             type="text"
-            placeholder="Search for any IP address or domain"
+            placeholder="Search for any IP address"
           >
           <button
             type="submit"
@@ -110,32 +95,25 @@
 
       <div id="map"></div>
     </div>
+
+    <div class="attribution">
+      Challenge by <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+      >Frontend Mentor</a>.
+      Coded by <a href="#">Dżo</a>.
+    </div>
+
   </main>
-
-
-
-
-
-
-
-  <!-- add offset value dynamically using the API -->
-
-
-  <div class="attribution">
-    Challenge by <a
-      href="https://www.frontendmentor.io?ref=challenge"
-      target="_blank"
-    >Frontend Mentor</a>.
-    Coded by <a href="#">Dżo</a>.
-  </div>
 
   <script
     src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""
   ></script>
-  <script src="script.js"></script>
-</body>
 
+  <script src="script.js"></script>
+
+</body>
 
 </html>
