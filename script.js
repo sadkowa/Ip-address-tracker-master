@@ -8,21 +8,26 @@ const timezoneInfo = document.querySelector('.info__data-timezone')
 const ispInfo = document.querySelector('.info__data-isp')
 let lat;
 let lng
+let map
 
 
-// początkowe renderowanie mapy 
+// pobranie user IP oraz przekazanie IP do funkcji logJSONData w celu renderowania mapy
 
-const map = L.map('map').setView([51.5, -0.09], 13);
+const text = (url) => {
+    return fetch(url).then(res => res.text());
+}
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
+    let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+    let ip = data.match(ipRegex)[0];
+
+    logJSONData(ip)
+});
 
 
 // funkcja obsługująca wysłanie formularza
 
 const getUserData = (event) => {
-
     event.preventDefault();
 
     const ipNumber = event.target[0].value;
@@ -64,16 +69,23 @@ const updateInfo = (data) => {
 }
 
 
-// funkcja, która zmienia położenie na mapie i dodaje znacznik po wczytaniu danych z Api
+// funkcja, która renderuje mapę
 
 const mapRender = (lat, lng) => {
-
-    map.setView([`${lat}`, `${lng}`], 13);
-
-    var myIcon = L.icon({
+    let myIcon = L.icon({
         iconUrl: './images/icon-location.svg',
         iconSize: [30, 40],
     });
+
+    if (!map) {
+        map = L.map('map').setView([`${lat}`, `${lng}`], 13);
+    } else {
+        map.setView([`${lat}`, `${lng}`], 13);
+    }
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
     L.marker([`${lat}`, `${lng}`], { icon: myIcon }).addTo(map)
 }
