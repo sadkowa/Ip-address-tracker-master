@@ -27,6 +27,7 @@ html, body {
     background-size: cover;
     background-position: start;
     background-repeat: no-repeat;
+    z-index: 1;
 }
 
 .description__header {
@@ -111,7 +112,7 @@ html, body {
 
 #map {
     flex-basis: 60vh;
-    z-index: -1;
+    z-index: 0;
 }
 
 .attribution {
