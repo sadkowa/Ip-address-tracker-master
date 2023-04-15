@@ -7,8 +7,9 @@ const locationInfo = document.querySelector('.info__data-location')
 const timezoneInfo = document.querySelector('.info__data-timezone')
 const ispInfo = document.querySelector('.info__data-isp')
 let lat;
-let lng
-let map
+let lng;
+let map;
+let marker
 
 
 // pobranie user IP oraz przekazanie IP do funkcji logJSONData w celu renderowania mapy
@@ -41,7 +42,8 @@ const getUserData = (event) => {
 // funkcja, która pobiera dane z https://geo.ipify.org/
 
 async function logJSONData(number) {
-    const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_mI14Wdw4daxVGSMnVTikmowrPUvuD&ipAddress=${number}`);
+    const response = await fetch(`
+    https://geo.ipify.org/api/v2/country,city?apiKey=at_qLKVpPtOTIRwZ89ccTxo5Gwel2hXY&ipAddress=${number}`);
     const jsonData = await response.json();
 
     updateInfo(jsonData)
@@ -72,6 +74,7 @@ const updateInfo = (data) => {
 // funkcja, która renderuje mapę
 
 const mapRender = (lat, lng) => {
+   
     let myIcon = L.icon({
         iconUrl: './images/icon-location.svg',
         iconSize: [30, 40],
@@ -79,15 +82,16 @@ const mapRender = (lat, lng) => {
 
     if (!map) {
         map = L.map('map').setView([`${lat}`, `${lng}`], 13);
+        marker = L.marker([`${lat}`, `${lng}`], { icon: myIcon }).addTo(map)
     } else {
         map.setView([`${lat}`, `${lng}`], 13);
+        marker.setLatLng([`${lat}`, `${lng}`])
     }
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.marker([`${lat}`, `${lng}`], { icon: myIcon }).addTo(map)
 }
 
 
