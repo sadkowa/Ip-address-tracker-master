@@ -19,7 +19,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://sadkowa.github.io/ip-address-tracker-master/)
+- Solution URL:  [IP address tracker](https://sadkowa.github.io/ip-address-tracker-master/)
 
 ### Built with
 
